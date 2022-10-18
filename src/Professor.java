@@ -23,7 +23,7 @@ public class Professor extends Usuario {
         this.user = user;
     }
 
-    public Professor(String Nome, int Matricula){
+    public Professor(String Nome, int Matricula,String Disciplina){
         super(Nome, Matricula);
         this.setDisciplina(Disciplina);
     }

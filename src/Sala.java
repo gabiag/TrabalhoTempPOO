@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Sala {
     //Atributos
-    private static int maximoReserva=20;
-    public int numSala;
-    public char tipoSala;
-    private int numReserva;
-    private ArrayList<Reserva> reserva = new ArrayList<>(maximoReserva);
+    private int numSala;
+    private char tipoSala;
+    static ArrayList<SalaConvencional> listaconvencional;
+    static ArrayList<SalaLaboratorio> listalaboratorio;
+
 
 
     //Getters
@@ -20,9 +20,13 @@ public class Sala {
     public int getnumSala(){
         return this.numSala;
     }
-    public int getnumReserva(){
-        return this.numReserva;
+    public static ArrayList<SalaConvencional> getListaconvencional() {
+        return listaconvencional;
     }
+    public static ArrayList<SalaLaboratorio> getListalaboratorio() {
+        return listalaboratorio;
+    }
+
     
 
 
@@ -33,17 +37,63 @@ public class Sala {
     public void setnumSala(int numSala){
         this.numSala = numSala;
     }
-    public void setnumReserva(int numReserva){
-        this.numReserva = numReserva;
+
+    public Sala(){
+        listaconvencional = new ArrayList<>();
+        listalaboratorio = new ArrayList<>();
     }
 
     public Sala(char tipoSala, int numSala){
         settipoSala(tipoSala);
         setnumSala(numSala);
+        listaconvencional = new ArrayList<>();
+        listalaboratorio = new ArrayList<>();
     }
+
+    public static void addSala(SalaConvencional c){
+        c.setSala(c);
+        listaconvencional.add(c);
+    }
+
+    public static void addLaboratorio(SalaLaboratorio l){
+        l.setSala(l);
+    listalaboratorio.add(l);
+    }
+
+    public static void imprimeDadosSalaConvencional(){
+
+        if(listaconvencional.size()>0){
+           for(int i=0; i<listaconvencional.size();i++){
+            System.out.println("Dados da Sala: ");
+            System.out.println("Numero da sala: " + listaconvencional.get(i).getnumSala());
+            System.out.println("Capacidade: " + listaconvencional.get(i).getCapacidade());
+           }
+
+        }
+        else{
+            System.out.println("Não há salas convencionais cadastradas!");
+        }   
+     }
+
+     public static void imprimeDadosLaboratorios(){
+
+        if(listalaboratorio.size()>0){
+           for(int i=0; i<listalaboratorio.size();i++){
+            System.out.println("Dados da Sala: ");
+            System.out.println("Numero da sala: " + listalaboratorio.get(i).getnumSala());
+            System.out.println("Capacidade: " + listalaboratorio.get(i).getCapacidade());
+           }
+
+        }
+        else{
+            System.out.println("Não há laboratorios cadastrados!");
+        }   
+     }
+
+    
     
 
-    //Metodo para adicionar reservas
+    /*Metodo para adicionar reservas
     public boolean adicionarreserva(Usuario usuario, int dia){
 
         if(numReserva<maximoReserva){
@@ -53,7 +103,7 @@ public class Sala {
             return true;
         }
         return false;
-    }
+    }*/
     
 
     
