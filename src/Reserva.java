@@ -2,9 +2,11 @@ package src;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Reserva {
+public class Reserva extends Sala{
 
-    private Usuario usuario;
+    private Professor professor;
+    private Sala sala;
+    private int numSala;
     private int numReservaA;
     private Calendar Data;
 
@@ -12,8 +14,8 @@ public class Reserva {
 
     //Getters 
 
-    public Usuario getUsuario(){
-        return this.usuario;
+    public Professor getProfessor() {
+        return professor;
     }
     public int getnumReservaA(){
         return this.numReservaA;
@@ -21,12 +23,19 @@ public class Reserva {
     public Calendar getData(){
         return this.Data;
     }
+    public int getNumSala() {
+        return numSala;
+    }
+    public Sala getSala() {
+        return sala;
+    }
+
 
 
 
     //Setters
-    public void setUsuario(Usuario usuario){
-        this.usuario = usuario;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
     public void setnumReservaA(int numReservaA){
         this.numReservaA = numReservaA;
@@ -34,18 +43,21 @@ public class Reserva {
     public void setData(Calendar Data){
         this.Data = Data;
     }
+    public void setNumSala(int numSala) {
+        this.numSala = numSala;
+    }
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
 
-    public Reserva(Usuario usuario, int numReservaA, int dia){
+    public Reserva(Professor professor,int numSala, int numReservaA, int dia){
         Calendar Data = new GregorianCalendar(2022,Calendar.OCTOBER,dia,18,12);
-        setUsuario(usuario);
+        setNumSala(numSala);
+        setProfessor(professor);
         setnumReservaA(numReservaA);
         setData(Data);
     }
 
-    
 
-
-
-    
     
 }

@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class Usuario {
+public class Usuario{
     private char tipoUsuario;
     private String Nome;
     private int Matricula;
